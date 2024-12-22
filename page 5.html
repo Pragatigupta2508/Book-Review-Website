@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literary Lens - Contact</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; margin: 0; }
+    nav { background: #333; padding: 1em; }
+    nav a { color: white; text-decoration: none; margin: 0 15px; }
+    header { padding: 20px; background: #e17055; color: white; }
+    section { padding: 20px; }
+    footer { background: #333; color: rgb(216, 114, 19); padding: 10px 0; margin-top: 50px; }
+    form {
+      margin: 0 auto;
+      max-width: 500px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #e17055;
+      color: white;
+      border: none;
+    }
+    form button:hover {
+      background-color: #d45c4d;
+    }
+    .error { color: red; font-size: 14px; }
+    .success { color: green; font-size: 14px; }
+    .icons a {
+      margin: 10px;
+      color: #333;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="page 1.html">Home</a>
+    <a href="page 2.html">Books</a>
+    <a href="page 3.html">Reviews</a>
+    <a href="page 4.html">About Us</a>
+    <a href="page 5.html">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you!</p>
+  </header>
+
+  <h1>Login</h1>
+  <img src="10.jpg" align="left" height="200" width="300" style="margin: 10px 100px 10px 10px;">
+  <img src="11.jpg" align="right" height="200" width="300" style="margin: 10px 100px 10px 10px;">
+
+  <!-- Login Form -->
+  <form id="login-form">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <input type="submit" value="Login">
+    <p id="login-message" class="error"></p> <!-- Error/Sucess message for login -->
+  </form>
+
+  <section>
+    <h2>Get in Touch</h2>
+    <!-- Contact Form -->
+    <form id="contact-form">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" required></textarea><br><br>
+      <button type="submit">Send</button>
+      <p id="contact-message" class="error"></p> <!-- Error/Success message for contact -->
+    </form>
+  </section>
+
+  <!-- Social Media Icons -->
+  <div class="icons">
+    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+  </div>
+
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+  <footer>
+    <p>&copy; 2024 Literary Lens. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript Section -->
+  <script>
+    // Handle Login Form Submission
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const loginMessage = document.getElementById('login-message');
+
+      // Simple validation (you can replace this with actual authentication logic)
+      if (username === 'user' && password === 'password') {
+        loginMessage.textContent = 'Login Successful!';
+        loginMessage.classList.remove('error');
+        loginMessage.classList.add('success');
+      } else {
+        loginMessage.textContent = 'Invalid username or password.';
+        loginMessage.classList.remove('success');
+        loginMessage.classList.add('error');
+      }
+    });
+
+    // Handle Contact Form Submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const contactMessage = document.getElementById('contact-message');
+
+      // Basic validation for the contact form
+      if (!name || !email || !message) {
+        contactMessage.textContent = 'Please fill out all fields.';
+        contactMessage.classList.add('error');
+      } else {
+        contactMessage.textContent = 'Thank you for your message!';
+        contactMessage.classList.remove('error');
+        contactMessage.classList.add('success');
+        
+        // Optionally reset the form
+        document.getElementById('contact-form').reset();
+      }
+    });
+  </script>
+</body>
+</html>
